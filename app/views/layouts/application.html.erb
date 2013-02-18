@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title><%= (title = yield(:title)) ? title : "Eikon Photo" %></title>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<meta name="language" content="en-us" />
+	<meta http-equiv="reply-to" content="info@commandc.com" />
+	<meta name="resource-type" content="document" />
+	<meta name="distribution" content="GLOBAL" />
+	<meta name="copyright" content="copyright Eikon Photo" />
+	<meta name="keywords" content="<%= yield :seo_keywords %>" />
+	<meta name="description" content="<%= yield :seo_description %>" />
+	<meta name="author" content="Command C, Custom Web Site Design, Website Design" />
+	<meta name="robots" content="index,follow" /> 
+	<%= stylesheet_link_tag 'screen' %>
+	<!--[if IE]>
+	<%= stylesheet_link_tag 'ie' %>
+	<![endif]-->
+	<!--[if lt IE 7]>
+	<%= stylesheet_link_tag 'ie6' %>
+	<![endif]-->
+	<%= javascript_tag "AUTH_TOKEN = '#{form_authenticity_token}';" %>
+
+	<%= javascript_include_tag 'jquery','jquery-ui','jquery.livequery','jquery.scrollTo','jquery.serialScroll','jquery.ezpz_tooltip','application' %>
+	<%= yield :page_js %>        
+	</style>
+  <script type="text/javascript" async="" src="/images/ga.js"></script><script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-2870455-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+</head>
+
+<body class="<%= (body_class = yield(:body_class)) ? body_class : 'default' %>">
+<div id="container">
+	<div id="header">
+		<%= image_tag 'logo-full.png', :size => "249x249", :alt => "Eikon Photo", :id => "logo" %>
+		<h1 id="seo-heading"><%= (heading = yield(:seo_heading)) ? heading : "Washington DC Photographer | Wedding | Maternity | Portrait | Corporate | Editorial" %></h1>
+		<% if flash[:error] %>
+			<div class="flash error"><%= flash[:error] %></div>
+		<% end %>
+		<% if flash[:notice] %>
+			<div class="flash notice"><%= flash[:notice] %></div>
+		<% end %>
+		<div id="navigation">
+			<%= render :partial => "common/mainmenu" %>
+		</div>
+	</div>
+	<div id="content">
+		<%= yield  %>
+	</div>
+	<div id="footer">
+		<%= render :partial => 'common/footer' %>
+		<h2 id="seo-footer"><%= (heading = yield(:seo_heading)) ? heading : "Washington DC Photographer | Wedding | Maternity | Portrait | Corporate | Editorial" %></h2>
+		<div class="seo-text-content"><%= (text = yield(:seo_text_content)) ? text : "" %></div>
+	</div>
+</div><!-- end 'container' -->
+<% if authorized? %>
+	<%= render :partial => 'common/admin_toolbar' %>
+<% end %>
+<%= yield :before_body_close %>
+</body>
+</html>

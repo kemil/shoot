@@ -1,0 +1,24 @@
+<p>
+  <%= seo_form.label :title %><br />
+  <%= seo_form.text_field :title %>
+</p>
+<p>
+  <%= seo_form.label :slug %><br />
+  <%= seo_form.text_field :slug %>
+</p>
+<p>
+  <%= seo_form.label :keywords %><br />
+  <%= seo_form.text_area :keywords, :rows => 3 %>
+</p>
+<p>
+  <%= seo_form.label :description %><br />
+  <%= seo_form.text_area :description, :rows => 3 %>
+</p>
+<p>
+  <%= seo_form.label :heading %><br />
+  <%= seo_form.text_field :heading %>
+</p>
+<p>
+  <%= seo_form.label :text_content, 'Text Content (uses <a href="http://www.textism.com/tools/textile/" target="_blank">Textile</a>)' %><br />
+  <%= seo_form.text_area :text_content %>
+</p>

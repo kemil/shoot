@@ -1,0 +1,13 @@
+<div id="photos-wrapper">
+	<% if !@photos.blank? %>
+		<% i =1 %>
+		<% for photo in @photos %>
+			<% div_for(photo) do %><%= image_tag photo.large.url, :class => (i==1?"first":"na")%><% end %>
+			<% i += 1 %>
+		<% end %>
+	<% elsif authorized? %>
+		<p><%= link_to 'Edit Category', edit_category_path(@category) %></p>
+	<% else %>
+		<p>There are no images to display.</p>
+	<% end %>
+</div><!-- end 'photos-wrapper' -->

@@ -1,0 +1,32 @@
+<%= @contact.name %> just received the Wedding Photography check list at <%= @contact.email %>.
+
+<h1>New Contact:</h1>
+<p>
+  <b>Name:</b>
+  <%=h @contact.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @contact.email %>
+</p>
+<p>
+  <b>Phone:</b>
+  <%=h @contact.phone %>
+</p>
+<p>
+  <b>Timeframe:</b>
+  <%=h @contact.timeframe %>
+</p>
+<p>
+  <b>Interest:</b>
+  <%=h @contact.interest %>
+</p>
+<p>
+  <b>Sign up for mailing list?:</b>
+  <%=h (@contact.mailinglist ? "Absolutely!" : "No, thank you.") %>
+</p>
+<p>
+  <b>Questions/Comments:</b><br />
+  <%=h @contact.comments %>
+</p>

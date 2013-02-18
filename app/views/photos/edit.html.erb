@@ -1,0 +1,48 @@
+<h1>Editing photo</h1>
+
+<% form_for(@photo) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :large_file_name %><br />
+    <%= f.text_field :large_file_name %>
+  </p>
+  <p>
+    <%= f.label :large_content_type %><br />
+    <%= f.text_field :large_content_type %>
+  </p>
+  <p>
+    <%= f.label :large_file_size %><br />
+    <%= f.text_field :large_file_size %>
+  </p>
+  <p>
+    <%= f.label :large_updated_at %><br />
+    <%= f.datetime_select :large_updated_at %>
+  </p>
+  <p>
+    <%= f.label :thumb_file_name %><br />
+    <%= f.text_field :thumb_file_name %>
+  </p>
+  <p>
+    <%= f.label :thumb_content_type %><br />
+    <%= f.text_field :thumb_content_type %>
+  </p>
+  <p>
+    <%= f.label :thumb_file_size %><br />
+    <%= f.text_field :thumb_file_size %>
+  </p>
+  <p>
+    <%= f.label :thumb_updated_at %><br />
+    <%= f.datetime_select :thumb_updated_at %>
+  </p>
+  <p>
+    <%= f.label :position %><br />
+    <%= f.text_field :position %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @photo %> |
+<%= link_to 'Back', photos_path %>

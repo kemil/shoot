@@ -1,0 +1,67 @@
+<% if @guide %>
+	<h3>Please fill out your contact information to be emailed a link to the PDF of the wedding planning guide.</h3>
+<% end %>
+<% form_for(@contact) do |f| %>
+	<%= hidden_field_tag 'guide', @guide || false %>
+	<table id="contact-form" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td class="top" colspan="2"><%= render :partial => 'error_messages', :object => @contact %></td>
+		</tr>
+		<tr>
+			<td class="col-left">
+				<div class="label"><%= f.label :name %></div>
+		    <%= f.text_field :name, :tabindex => 1 %>
+			</td>
+			<td class="col-right">
+				<div class="label"><%= f.label :interest %></div>
+		    <%= f.select(:interest, ["Boudoir Photography",
+				"Corporate Event Photography",
+				"Editorial Photography",
+				"Maternity Photography",
+				"Newborn/Infant Photography",
+				"Portraiture",
+				"Wedding Photography",
+				"Other"], :prompt => true, :tabindex => 5) %>
+			</td>
+		</tr>
+		<tr>
+			<td class="col-left">
+				<div class="label"><%= f.label :phone %></div>
+		    <%= f.text_field :phone, :tabindex => 2 %>
+			</td>
+			<td class="col-right">
+		    <div class="label"><%= f.label :mailinglist %></div>
+		    <%= f.check_box :mailinglist, :tabindex => 6, :checked => "checked", :class => "checkbox" %>
+			</td>
+		</tr>
+		<tr>
+			<td class="col-left">
+				<div class="label"><%= f.label :email %></div>
+		    <%= f.text_field :email, :tabindex => 3 %>
+			</td>
+			<td rowspan="3"  class="col-right">
+				<div class="label"><%= f.label :comments %></div>
+		    <%= f.text_area :comments, :tabindex => 7, :rows => 11, :cols => 35 %>
+			</td>
+		</tr>
+		<tr>
+			<td class="col-left">
+				<div class="label"><%= f.label :timeframe %></div>
+		    <%= f.text_field :timeframe, :tabindex => 4 %>
+			</td>
+		</tr>
+		<tr>
+			<td class="col-left">
+				<div class="bluebox">
+					FOR GENERAL INQUIRIES, EMAIL:<br />
+					<%= mail_to 'STUDIO@EIKONPHOTOGRAPHER.COM', nil, :encode => "hex" %>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="bottom">
+				<%= f.submit 'Submit', :class => 'submit' %>
+			</td>
+		</tr>
+	</table>
+<% end %>

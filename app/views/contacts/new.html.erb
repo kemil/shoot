@@ -1,0 +1,47 @@
+<% content_for :body_class do %>contact-page<% end %>
+<div class="main-col-left">
+	<div id="address" class="vcard">
+		<div class="org fn"><strong>eikon</strong> photo</div>
+		<div class="adr">
+			<div class="street-address">1444 Independence Ave SE</div>
+			<span class="locality">Washington</span>,
+			<span class="region">DC</span> 
+			<span class="postal-code">20003</span>
+		</div>
+		Phone: <span class="tel">202.470.3534</span>
+	</div>
+	<div id="studio-map-link">
+		<a href="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=1444+Independence+Ave.+SE+Washington,+DC++20003&sll=37.0625,-95.677068&sspn=36.231745,79.101563&ie=UTF8&ll=38.888093,-76.983819&spn=0.008702,0.019312&z=16&iwloc=A" target="_blank">Studio Location</a>
+	</div>
+	<div id="social-links">
+		Contact me: <br />
+		<%= link_to(image_tag('icon-twitter.gif', :size => '27x28', :alt => "Twitter"), {}, :href => "http://twitter.com/EikonPhoto", :target => "_blank", :title => "Twitter") %>
+		<%= link_to(image_tag('icon-aim.gif', :size => '27x28', :alt => "AIM"), {}, :href => "aim:goim?screenname=eikonphotog&message=Hi.+Are+you+there?", :target => "_blank", :title => "AIM") %>
+		<%= link_to(image_tag('icon-rss.gif', :size => '27x28', :alt => "RSS"), {}, :href => "http://www.addthis.com/feed.php?pub=4a0889cc53a09f82&h1=http%3A%2F%2Fwww.eikonphotographer.com&t1=", :target => "_blank", :onclick=> "return addthis_open(this, 'feed', 'http://www.eikonphotographer.com');", :title => "RSS") %>
+		<script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
+		<%= link_to(image_tag('icon-skype.gif', :size => '27x28', :alt => "Skype"), {}, :href => "skype:karensayre?call", :target => "_blank", :title => "Skype") %>
+		<br />
+		<%= link_to(image_tag('icon-facebook.gif', :size => '79x28', :alt => "Facebook", :id => "facebook-link"), {}, :href => "http://www.facebook.com/home.php#/pages/Washington-DC/Eikon-Photography/87036614784?ref=s", :target => "_blank", :title => "Facebook") %>
+	</div>
+</div>
+<div class="main-col-right">
+	<div id="contact_form_container">
+		<%= render :partial => 'contact_form' %>
+	</div>
+</div>
+
+<% content_for :before_body_close do %>
+<!-- BEGIN AIM CODE -->
+<script type="text/javascript" src="http://o.aolcdn.com/aim/web-aim/aimapi.js"></script>
+<script type="text/javascript">
+AIM.util.createStyleSheet(
+"http://o.aolcdn.com/aim/wimzi/orangecrush_mini.css");
+</script>
+<script type="text/javascript" src="http://o.aolcdn.com/aim/web-aim/wimzi.js"></script>
+<div id="wimziContainer" wimzi_key="ei15-cHaPjDpOw-N"></div>
+<!-- END AIM CODE -->
+<!-- BEGIN ADDTHIS RSS CODE -->
+<script type="text/javascript">var addthis_pub="4a0889cc53a09f82";</script>
+<script type="text/javascript" src="http://s7.addthis.com/js/200/addthis_widget.js"></script>
+<!-- END ADDTHIS RSS CODE -->
+<% end %>

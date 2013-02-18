@@ -1,0 +1,11 @@
+<% unless @category.seo_profile.nil? %>
+	<% content_for :title do %><%=h @category.seo_profile.title %><% end %>
+	<% content_for :seo_keywords do %><%=h @category.seo_profile.keywords %><% end %>
+	<% content_for :seo_description do %><%=h @category.seo_profile.description %><% end %>
+	<% content_for :seo_heading do %><%=h @category.seo_profile.heading %><% end %>
+	<% content_for :seo_text_content do %><%= textilize(@category.seo_profile.text_content) %><% end %>
+<% end %>
+<% content_for :body_class do %>category-page category_<%= @category.id.to_s %><% end %>
+
+<%= render :partial => 'photos' %>
+<%= render :partial => 'photos_nav' %>

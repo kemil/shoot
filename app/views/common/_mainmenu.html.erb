@@ -1,0 +1,30 @@
+<ul id="mainmenu" class="headermenu<%=  " admin-menu" if authorized? %>">
+	<li>
+		<% if authorized? %>
+			<div id="home_edit" class="menu_item_admin_controls" style="display: none;">
+				<%= link_to(image_tag('pencil.png', :size => '16x16'), edit_category_path(Category.home_category.first), :title => 'Edit Home Category') %>
+			</div>
+		<% end %>
+		<%= link_to 'Home', root_url, :class => ((current_page?(:controller => 'static', :action => 'home')) ? 'current' : 'na') %>
+	</li>
+	<li><%= link_to 'About', about_url, :class => (current_page?(about_url) ? 'current' : 'na') %></li>
+	<li><%= link_to 'Services', services_url, :class => (current_page?(services_url) ? 'current' : 'na') %></li>
+	<li><a href="http://blog.eikonphoto.com/" target="_blank">Blog</a></li>
+	<li><a href="http://www.eikonclients.com/pickpic/gallery/jump.php" target="_blank">Client Login</a></li>
+	<li><%= link_to 'Contact', contactus_url, :class => (current_page?(contactus_url) ? 'current' : 'na') %></li>
+</ul>
+<ul id="categorymenu" class="headermenu<%=  " admin-menu" if authorized? %>">
+	<li class="list-heading">Portfolio:</li>
+	<% Category.menu_categories.each do |category| %>
+		<% content_tag_for(:li,category) do %>
+			<% if authorized? %>
+				<div class="menu_item_admin_controls" style="display: none;">
+					<%= link_to(image_tag('pencil.png', :size => '16x16'), edit_category_url(category), :title => 'Edit Category') %>
+					<%= link_to(image_tag('fail.png', :size => '16x16'), category, :class => "ajax-delete", :title => 'Delete Category')%>
+					<%= image_tag('drag_handle.png', :size => '16x16', :class => 'category_menu_drag_handle') %>
+				</div>
+			<% end %>
+			<%= link_to category.name, category, :class => ('current' if category == @category) %>
+		<% end %>
+	<% end %>
+</ul>

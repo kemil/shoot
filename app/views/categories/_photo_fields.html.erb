@@ -1,0 +1,19 @@
+<% content_tag_for(:li, photo_form.object) do %>
+	<% unless photo_form.object.new_record? %>
+		<div class="photo_thumbs">
+			<%= image_tag 'drag_handle.png', :size => "16x16", :class => "photo_drag_handle" %>
+			<%= link_to_function(image_tag('pencil.png', :size => '16x16'), "$(this).parent().next('.photo_fields').toggle()" )%>
+			<%= image_tag(photo_form.object.thumb.url) %>
+			<%= image_tag(photo_form.object.large.url(:thumb)) %>
+		</div>
+		<div class="photo_fields" style="display: none;">
+	<% else %>
+		<div class="photo_fields">
+	<% end %>
+			<%= photo_form.label :large, 'Full Version (height = 493px): ' %><br />
+			<%= photo_form.file_field :large %><br />
+			<%= photo_form.label :thumb, 'Custom Thumbnail (73px X 73px): ' %><br />
+			<%= photo_form.file_field :thumb %>
+		</div>
+	<%= remove_photo_link(photo_form) %>
+<% end %>

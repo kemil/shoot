@@ -1,0 +1,11 @@
+<% unless @photos.blank? %>
+	<div id="photos-nav">
+		<div id="arrows">
+			<%= image_tag('arrow-left.gif', :size => "36x17", :mouseover => 'arrow-left_ro.gif', :alt => 'Previous', :class => "prev_photo", :id =>"prev_photo", :style => "display: none;") %>
+			<%= image_tag('see-more.gif', :size => '80x20', :alt => 'see more', :id => 'see_more') if @category.is_home? %>
+			<%= image_tag('take-me-back.gif', :size => '121x20', :alt => 'take me back', :id => 'take_me_back', :class => 'next_photo', :style => "display: none;") if @category.is_home? %>
+			<%= image_tag('arrow-right.gif', :size => "35x17", :mouseover => 'arrow-right_ro.gif', :alt => 'Next', :class => "next_photo", :id => "next_photo") %>
+		</div>
+		<%= render :partial => 'photos_menu' unless @category.is_home? %>
+	</div>
+<% end %>

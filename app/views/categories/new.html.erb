@@ -1,0 +1,32 @@
+<h1>New category</h1>
+
+<% form_for(@category, :html => { :multipart => true }) do |category_form| %>
+  <%= category_form.error_messages %>
+
+  <p>
+	  <%= category_form.label :name %><br />
+	  <%= category_form.text_field :name %>
+		<%= image_tag 'pencil.png', :size => '16x16' %><%= link_to_function 'Edit SEO', "$('#seo_fields').toggle();" %>
+	</p>
+	<div id="seo_fields" style="display: none;">
+		<% category_form.fields_for :seo_profile  do |seo_form| %>
+			<%= render :partial => "seo_profiles/fields", :locals => { :seo_form => seo_form } %>
+		<% end %>
+	</div>
+	
+	<h2>Add Photos:</h2>
+	<ol id="photo_fields">
+		<% @category.photos.each do |photo| %>
+			<% category_form.fields_for :photos, photo do |photo_form| %>
+				<%= render :partial => 'photo_fields', :locals => { :photo_form => photo_form } %>
+			<% end %>
+		<% end %>
+	</ol>
+	<%= add_photo_link(category_form) %>
+
+  <p>
+    <%= category_form.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', root_path %>

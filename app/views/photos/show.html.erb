@@ -1,0 +1,48 @@
+<p>
+  <b>Large file name:</b>
+  <%=h @photo.large_file_name %>
+</p>
+
+<p>
+  <b>Large content type:</b>
+  <%=h @photo.large_content_type %>
+</p>
+
+<p>
+  <b>Large file size:</b>
+  <%=h @photo.large_file_size %>
+</p>
+
+<p>
+  <b>Large updated at:</b>
+  <%=h @photo.large_updated_at %>
+</p>
+
+<p>
+  <b>Thumb file name:</b>
+  <%=h @photo.thumb_file_name %>
+</p>
+
+<p>
+  <b>Thumb content type:</b>
+  <%=h @photo.thumb_content_type %>
+</p>
+
+<p>
+  <b>Thumb file size:</b>
+  <%=h @photo.thumb_file_size %>
+</p>
+
+<p>
+  <b>Thumb updated at:</b>
+  <%=h @photo.thumb_updated_at %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%=h @photo.position %>
+</p>
+
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>
