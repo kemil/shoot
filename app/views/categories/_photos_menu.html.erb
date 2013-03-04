@@ -2,8 +2,8 @@
 	<% i = 1 %>
 	<% for photo in @photos %>
 		<% content_tag_for(:li, photo) do %>
-			<%= link_to(i.to_s, photo, :class => ( photo == @photos.first ? "tooltip-target active" : "tooltip-target inactive"), :id => "tooltip-target-#{photo.id}") %>
-			<%= image_tag(photo.thumb.url, :size => "73x73", :class => "tooltip-content", :id => "tooltip-content-#{photo.id}", :style => "display: none;") %>
+			<%= link_to ( i.to_s, photo, :class => ( photo == @photos.first ? "tooltip-target active" : "tooltip-target inactive"), :id => "tooltip-target-#{photo.id}") %>
+			<%= image_tag(photo.thumb.url, :size => "73x73", :class => "tooltip-content", :id => "tooltip-content-#{photo.id}", :style => "display: none;", :alt => photo.caption) %>
 		<% end %>
 		<% i += 1%>
 	<% end %>

@@ -1,1 +1,2 @@
-module ContactsHelperend
+module ContactsHelper
+end

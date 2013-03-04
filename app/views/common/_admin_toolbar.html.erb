@@ -9,6 +9,10 @@
 			<%= image_tag("add.png", :size => "16x16") %>
 			<%= link_to( "Add New Category", new_category_path ) %>
 		</li>
+		<li>
+			<%= image_tag("pencil.png", :size => "16x16") %>
+			<%= link_to( "Edit Footer", params[:id].nil? ? edit_footer_path(:id => 1) : edit_footer_path(:id => 1, :category_id => params[:id]) ) %>
+		</li>
 		<%= yield :admin_toolbar %>
 	</ul>
 	<%= image_tag 'drag_handle.png', :size => "16x16", :class => "admin_drag_handle" %>

@@ -1,1 +1,4 @@
-require 'test_helper'class StaticHelperTest < ActionView::TestCaseend
+require 'test_helper'
+
+class StaticHelperTest < ActionView::TestCase
+end

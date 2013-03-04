@@ -3,8 +3,8 @@
 		<div class="photo_thumbs">
 			<%= image_tag 'drag_handle.png', :size => "16x16", :class => "photo_drag_handle" %>
 			<%= link_to_function(image_tag('pencil.png', :size => '16x16'), "$(this).parent().next('.photo_fields').toggle()" )%>
-			<%= image_tag(photo_form.object.thumb.url) %>
-			<%= image_tag(photo_form.object.large.url(:thumb)) %>
+			<%= image_tag(photo_form.object.thumb.url, :alt => photo_form.object.caption) %>
+			<%= image_tag(photo_form.object.large.url(:thumb), :alt => photo_form.object.caption) %>
 		</div>
 		<div class="photo_fields" style="display: none;">
 	<% else %>
@@ -13,7 +13,9 @@
 			<%= photo_form.label :large, 'Full Version (height = 493px): ' %><br />
 			<%= photo_form.file_field :large %><br />
 			<%= photo_form.label :thumb, 'Custom Thumbnail (73px X 73px): ' %><br />
-			<%= photo_form.file_field :thumb %>
+			<%= photo_form.file_field :thumb %><br />
+            <%= photo_form.label :caption %><br />
+			<%= photo_form.text_field :caption %>
 		</div>
 	<%= remove_photo_link(photo_form) %>
 <% end %>

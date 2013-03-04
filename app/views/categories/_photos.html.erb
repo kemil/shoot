@@ -2,7 +2,7 @@
 	<% if !@photos.blank? %>
 		<% i =1 %>
 		<% for photo in @photos %>
-			<% div_for(photo) do %><%= image_tag photo.large.url, :class => (i==1?"first":"na")%><% end %>
+			<% div_for(photo) do %><%= image_tag(photo.large.url, :class => (i==1?"first":"na"), :alt => photo.caption) %><% end %>
 			<% i += 1 %>
 		<% end %>
 	<% elsif authorized? %>

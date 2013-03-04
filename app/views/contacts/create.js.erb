@@ -1,2 +1,6 @@
-$('#contact_form_container').html('<p>Thank you for your message.</p>');
+<% if @guide %>
+	$('#contact_form_container').html('<p>Thank you for your message. Your Wedding Photography check list is on its way.</p>');
+<% else %>
+	$('#contact_form_container').html('<p>Thank you for your message.</p>');
+<% end %>
 $('#errors_container').html("");

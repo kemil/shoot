@@ -1,0 +1,18 @@
+<% form_for(@footer) do |footer_form| %>
+
+  <p>
+		<%= footer_form.label :content %><br />
+		<%= fckeditor_textarea("footer","content", :toolbarSet => 'Simple', :width => '50%', :height => '400px') %>
+  </p>
+  
+  <p>
+		<%= label_tag "SEO Footer" %><br />
+		<%= text_area_tag("seo_profile[heading]", @category.seo_profile.heading, :style=>"width: 603px; height: 80px;") %>
+  </p>
+
+  <p>
+    <%= submit_tag 'Save Changes' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', root_path %>

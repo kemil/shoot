@@ -24,21 +24,8 @@
 	<%= javascript_tag "AUTH_TOKEN = '#{form_authenticity_token}';" %>
 
 	<%= javascript_include_tag 'jquery','jquery-ui','jquery.livequery','jquery.scrollTo','jquery.serialScroll','jquery.ezpz_tooltip','application' %>
-	<%= yield :page_js %>        
-	</style>
-  <script type="text/javascript" async="" src="/images/ga.js"></script><script type="text/javascript">
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-2870455-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-  </script>
+	<%= javascript_include_tag :fckeditor%>
+	<%= yield :page_js %>
 </head>
 
 <body class="<%= (body_class = yield(:body_class)) ? body_class : 'default' %>">
@@ -59,10 +46,16 @@
 	<div id="content">
 		<%= yield  %>
 	</div>
-	<div id="footer">
+	<div id="footer" class="footer<%=  "-admin-menu" if authorized? %>">
+		<% if authorized? %>
+			<div class="footer_admin" style="display: none;">
+				<%= link_to("#{image_tag('pencil.png', :size => '16x16')} Edit Footer", params[:id].nil? ? edit_footer_path(:id => 1) : edit_footer_path(:id => 1, :category_id => params[:id]), :title => 'Edit Category') %>
+			</div>
+		<% end %>
 		<%= render :partial => 'common/footer' %>
 		<h2 id="seo-footer"><%= (heading = yield(:seo_heading)) ? heading : "Washington DC Photographer | Wedding | Maternity | Portrait | Corporate | Editorial" %></h2>
 		<div class="seo-text-content"><%= (text = yield(:seo_text_content)) ? text : "" %></div>
+
 	</div>
 </div><!-- end 'container' -->
 <% if authorized? %>
