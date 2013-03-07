@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :categories
   map.resources :footers
+  map.resources :services
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
@@ -15,7 +16,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
   
   map.about '/about-eikon-photographer.html', :controller => 'static', :action => 'about'
-  map.services '/eikon-photographer-services.html', :controller => 'static', :action => 'services'
+  map.photographer_services '/eikon-photographer-services.html', :controller => 'static', :action => 'services'
   map.corporate '/washington-dc-corporate-events-photographer.html', :controller => 'categories', :action => 'show', :id => 7
   map.portrait '/washington-dc-portrait-photographer.html', :controller => 'categories', :action => 'show', :id => 2
   map.maternity '/washington-dc-maternity-photographer.html', :controller => 'categories', :action => 'show', :id => 6

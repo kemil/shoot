@@ -8,7 +8,7 @@
 		<%= link_to 'Home', root_url, :class => ((current_page?(:controller => 'static', :action => 'home')) ? 'current' : 'na') %>
 	</li>
 	<li><%= link_to 'About', about_url, :class => (current_page?(about_url) ? 'current' : 'na') %></li>
-	<li><%= link_to 'Services', services_url, :class => (current_page?(services_url) ? 'current' : 'na') %></li>
+	<li><%= link_to 'Services', photographer_services_url, :class => (current_page?(photographer_services_url) ? 'current' : 'na') %></li>
 	<li><a href="http://blog.eikonphoto.com/" target="_blank">Blog</a></li>
 	<li><a href="http://www.eikonclients.com/pickpic/gallery/jump.php" target="_blank">Client Login</a></li>
 	<li><%= link_to 'Contact', contactus_url, :class => (current_page?(contactus_url) ? 'current' : 'na') %></li>

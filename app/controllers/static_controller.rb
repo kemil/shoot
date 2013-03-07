@@ -10,6 +10,7 @@ class StaticController < ApplicationController
   
   def services
     @seo_profile = SeoProfile.find(2)
+    @services = Service.find(:all, :order =>"position ASC")
   end
 
 end

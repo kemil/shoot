@@ -49,7 +49,7 @@
 	<div id="footer" class="footer<%=  "-admin-menu" if authorized? %>">
 		<% if authorized? %>
 			<div class="footer_admin" style="display: none;">
-				<%= link_to("#{image_tag('pencil.png', :size => '16x16')} Edit Footer", params[:id].nil? ? edit_footer_path(:id => 1) : edit_footer_path(:id => 1, :category_id => params[:id]), :title => 'Edit Category') %>
+				<%= link_to("#{image_tag('pencil.png', :size => '16x16')} Edit Footer", params[:id].nil? ? edit_footer_path(:id => 1) : edit_footer_path(:id => 1, :category_id => params[:id]), :title => 'Edit Footer') %>
 			</div>
 		<% end %>
 		<%= render :partial => 'common/footer' %>
@@ -62,5 +62,6 @@
 	<%= render :partial => 'common/admin_toolbar' %>
 <% end %>
 <%= yield :before_body_close %>
+<script type="text/javascript">var _cmo = {form: '511a85c77945aa000201b902', text: 'Contact Us', align: 'right', valign: 'middle', lang: 'en', background_color: '#3FC0C4'}; (function() {var cms = document.createElement('script'); cms.type = 'text/javascript'; cms.async = true; cms.src = ('https:' == document.location.protocol ? 'https://d1uwd25yvxu96k.cloudfront.net' : 'http://static.contactme.com') + '/widgets/tab/v1/tab.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(cms, s);})();</script>
 </body>
 </html>

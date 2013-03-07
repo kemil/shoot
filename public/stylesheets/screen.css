@@ -284,6 +284,32 @@ div.footer_admin{
 	margin-left: 400px;
 	padding: 1px;
 }
+
+div.service_admin{
+	position: fixed;
+	width: 55px;
+	height: 16px;
+	left: 130px;
+	background: #fff;
+	border: 1px solid #ccc;
+	padding: 1px;
+}
+
+div.service_content{
+	position: absolute;
+	width: 55px;
+	height: 16px;
+	left: 600px;
+	background: #fff;
+	border: 1px solid #ccc;
+	padding: 1px;
+}
+
+.service_admin img {
+	cursor:pointer;
+	cursor:hand;
+}
+
 div#home_edit {
 	width: 18px;
 	left: -22px;

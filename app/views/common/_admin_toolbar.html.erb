@@ -10,6 +10,10 @@
 			<%= link_to( "Add New Category", new_category_path ) %>
 		</li>
 		<li>
+			<%= image_tag("add.png", :size => "16x16") %>
+			<%= link_to( "Add New Service",  new_service_path) %>
+		</li>
+		<li>
 			<%= image_tag("pencil.png", :size => "16x16") %>
 			<%= link_to( "Edit Footer", params[:id].nil? ? edit_footer_path(:id => 1) : edit_footer_path(:id => 1, :category_id => params[:id]) ) %>
 		</li>

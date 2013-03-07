@@ -63,6 +63,24 @@ $(document).ready( function() {
 			$('.footer_admin',this).hide();
 		}
 	);
+
+	$('.service-admin-menu li').hover( 
+		function() {
+			$('.service_admin',this).show();
+		},
+		function(){
+			$('.service_admin',this).hide();
+		}
+	);
+
+	$('#tabs div.service-admin-content').hover( 
+		function() {
+			$('.service_content',this).show();
+		},
+		function(){
+			$('.service_content',this).hide();
+		}
+	);
 	
 	// Make category menu sortable (handle only present when admin is logged in)
 	$('#categorymenu').sortable({
@@ -71,6 +89,15 @@ $(document).ready( function() {
 		axis: 'y',
 		update: function() {
 			$.post('/categories/order', $(this).sortable('serialize') +'&'+'authenticity_token='+ encodeURIComponent(AUTH_TOKEN));
+		} 
+	});
+
+	$('.service-admin-menu').sortable({
+		handle: '.service_menu_drag_handle',
+		items: 'li',
+		axis: 'y',
+		update: function() {
+			$.post('/services/order', $(this).sortable('serialize') +'&'+'authenticity_token='+ encodeURIComponent(AUTH_TOKEN));
 		} 
 	});
 	
@@ -222,3 +249,16 @@ $(document).ready( function() {
 	
 
 });
+
+function deleteService(url){
+	var answer = confirm("Are you sure you want to delete this?")
+	if (answer){
+				$.ajax({
+			      async:true, 
+			      data: {"_method":"delete"},
+			      dataType:'script', 
+			      type:'post',
+			      url: url
+				});
+	}
+}
